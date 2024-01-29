@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://fonts/DroidSans.ttf" type="FontFile" id=1]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="FontFile" id=2]
+[ext_resource path="res://HUD.gd" type="Script" id=3]
+[ext_resource path="res://art/never_forgetti.png" type="Texture2D" id=4]
+[ext_resource path="res://art/reeses_background.jpg" type="Texture2D" id=5]
+
+[sub_resource type="FontFile" id=1]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="FontFile" id=2]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="FontFile" id=3]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="FontFile" id=4]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="FontFile" id=5]
+size = 47
+font_data = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="txSpaghett" type="TextureRect" parent="."]
+offset_right = 480.0
+offset_bottom = 720.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="txReeses" type="TextureRect" parent="."]
+offset_right = 480.0
+offset_bottom = 720.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -296.0
+offset_bottom = -220.0
+theme_override_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+
+[node name="MessageLabel" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -216.0
+offset_bottom = 24.0
+theme_override_fonts/font = SubResource( 2 )
+text = "MAUL THAT SPAGHETT BOI"
+align = 1
+autowrap = true
+
+[node name="StartButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_bottom = -36.0
+theme_override_fonts/font = SubResource( 3 )
+text = "START"
+
+[node name="btnOptions" type="Button" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -328.0
+offset_bottom = -244.0
+theme_override_fonts/font = SubResource( 4 )
+text = "OPTIONS"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="btnCereal" type="Button" parent="."]
+offset_top = 504.0
+offset_right = 480.0
+offset_bottom = 576.0
+theme_override_fonts/font = SubResource( 5 )
+text = "KILL Cereal!"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="btnOptions" to="." method="_on_btnOptions_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
+[connection signal="pressed" from="btnCereal" to="." method="_on_btnCereal_pressed"]

@@ -1,0 +1,137 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://art/doland_drumpf_orig.png" type="Texture2D" id=2]
+[ext_resource path="res://art/torlor_closed.png" type="Texture2D" id=3]
+[ext_resource path="res://art/torlor_open_1.png" type="Texture2D" id=4]
+[ext_resource path="res://art/torlor_open_2.png" type="Texture2D" id=5]
+[ext_resource path="res://art/torlor_open_3.png" type="Texture2D" id=6]
+[ext_resource path="res://art/torlor_open_5.png" type="Texture2D" id=7]
+[ext_resource path="res://art/torlor_open_4.png" type="Texture2D" id=8]
+[ext_resource path="res://art/elon_1.png" type="Texture2D" id=9]
+[ext_resource path="res://art/elon_2.png" type="Texture2D" id=10]
+[ext_resource path="res://art/elon.png" type="Texture2D" id=11]
+[ext_resource path="res://art/elon_3.png" type="Texture2D" id=12]
+[ext_resource path="res://art/elon_5.png" type="Texture2D" id=13]
+[ext_resource path="res://art/elon_4.png" type="Texture2D" id=14]
+[ext_resource path="res://art/pope.png" type="Texture2D" id=15]
+[ext_resource path="res://art/pope_2.png" type="Texture2D" id=16]
+[ext_resource path="res://art/pope_3.png" type="Texture2D" id=17]
+[ext_resource path="res://art/pope_4.png" type="Texture2D" id=18]
+[ext_resource path="res://art/pope_1.png" type="Texture2D" id=19]
+[ext_resource path="res://art/pope_5.png" type="Texture2D" id=20]
+[ext_resource path="res://art/drew.png" type="Texture2D" id=21]
+[ext_resource path="res://art/drew_3.png" type="Texture2D" id=22]
+[ext_resource path="res://art/drew_5.png" type="Texture2D" id=23]
+[ext_resource path="res://art/drew_2.png" type="Texture2D" id=24]
+[ext_resource path="res://art/drew_1.png" type="Texture2D" id=25]
+[ext_resource path="res://art/drew_4.png" type="Texture2D" id=26]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.46631
+height = 19.3281
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "eating",
+"speed": 24.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 19.0
+height = 11.9999
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 21.0
+height = 10.0
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 17.0
+height = 28.0
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 21 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 26 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 11.0
+height = 42.0285
+
+[node name="Player" type="Area2D"]
+position = Vector2( 61, 384 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Drumpf" type="Sprite2D" parent="."]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShapeDrumpf" type="CollisionShape2D" parent="."]
+position = Vector2( 40, 63 )
+rotation = 0.436332
+shape = SubResource( 1 )
+
+[node name="Torler" type="AnimatedSprite2D" parent="."]
+scale = Vector2( 0.8, 0.8 )
+frames = SubResource( 2 )
+animation = "eating"
+frame = 5
+
+[node name="CollisionShapeTorler" type="CollisionShape2D" parent="."]
+position = Vector2( 49, 57 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Elon" type="AnimatedSprite2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 4 )
+
+[node name="CollisionShapeElon" type="CollisionShape2D" parent="."]
+position = Vector2( 45, 67 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="Pope" type="AnimatedSprite2D" parent="."]
+position = Vector2( 22, -160 )
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 6 )
+
+[node name="CollisionShapePope" type="CollisionShape2D" parent="."]
+position = Vector2( 51, 77 )
+shape = SubResource( 7 )
+
+[node name="DrDrew" type="AnimatedSprite2D" parent="."]
+scale = Vector2( 0.225, 0.225 )
+frames = SubResource( 8 )
+frame = 5
+
+[node name="CollisionShapeDrew" type="CollisionShape2D" parent="."]
+position = Vector2( 63, 63 )
+rotation = 0.261799
+shape = SubResource( 9 )
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
